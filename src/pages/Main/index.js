@@ -31,6 +31,7 @@ export default class Main extends Component {
     newUser: '',
     users: [],
     loading: false,
+    requestError: false,
   };
 
   async componentDidMount() {
@@ -49,26 +50,49 @@ export default class Main extends Component {
   }
 
   handleAddUser = async () => {
-    const { users, newUser } = this.state;
-
     this.setState({ loading: true });
 
-    const response = await api.get(`/users/${newUser}`);
+    const { users, newUser } = this.state;
 
-    const data = {
-      name: response.data.name,
-      login: response.data.login,
-      bio: response.data.bio,
-      avatar: response.data.avatar_url,
-    };
+    const existUser = users.find((user) => user.login === newUser);
+
+    if (!existUser) {
+      try {
+        const response = await api.get(`/users/${newUser}`);
+
+        if (response.lenght) throw new Error('User not found');
+
+        const data = {
+          name: response.data.name ? response.data.name : 'unnamed',
+          bio: response.data.bio ? response.data.bio : 'without bio',
+          login: response.data.login,
+          avatar: response.data.avatar_url,
+        };
+
+        this.setState({
+          users: [data, ...users],
+        });
+      } catch (error) {
+        this.handleError();
+      }
+    } else {
+      this.handleError();
+    }
 
     this.setState({
-      users: [data, ...users],
       newUser: '',
       loading: false,
     });
 
     Keyboard.dismiss();
+  };
+
+  handleError = () => {
+    this.setState({ requestError: true });
+
+    setTimeout(() => {
+      this.setState({ requestError: false });
+    }, 2000);
   };
 
   handleNavigate = (user) => {
@@ -78,7 +102,7 @@ export default class Main extends Component {
   };
 
   render() {
-    const { users, newUser, loading } = this.state;
+    const { users, newUser, loading, requestError } = this.state;
 
     return (
       <Container>
@@ -91,6 +115,7 @@ export default class Main extends Component {
             onChangeText={(text) => this.setState({ newUser: text })}
             returnKeyType="send"
             onSubmitEditing={this.handleAddUser}
+            requestError={requestError}
           />
           <SubmitButton loading={loading} onPress={this.handleAddUser}>
             {loading ? (

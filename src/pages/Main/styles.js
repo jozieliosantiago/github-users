@@ -15,14 +15,14 @@ export const Form = styled.View`
 `;
 
 export const Input = styled.TextInput.attrs({
-  placeholderTextColor: '#b9b9b9',
+  placeholderTextColor: '#d0d0d0',
 })`
   flex: 1;
   height: 40px;
-  background: #ddd;
+  background: ${(props) => (props.requestError ? '#ff000008' : '#f5f5f5')};
   border-radius: 4px;
   padding: 0 15px;
-  border: solid 1px #ddd;
+  border: solid 1px ${(props) => (props.requestError ? '#ff000050' : '#f5f5f5')};
 `;
 
 export const SubmitButton = styled(RectButton)`
