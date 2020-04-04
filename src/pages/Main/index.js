@@ -56,7 +56,7 @@ export default class Main extends Component {
 
     const existUser = users.find((user) => user.login === newUser);
 
-    if (!existUser) {
+    if (!existUser && newUser) {
       try {
         const response = await api.get(`/users/${newUser}`);
 
@@ -112,7 +112,7 @@ export default class Main extends Component {
             autoCaptalize="none"
             placeholder="Adcionar usuário"
             value={newUser}
-            onChangeText={(text) => this.setState({ newUser: text })}
+            onChangeText={(text) => this.setState({ newUser: text.trim() })}
             returnKeyType="send"
             onSubmitEditing={this.handleAddUser}
             requestError={requestError}
