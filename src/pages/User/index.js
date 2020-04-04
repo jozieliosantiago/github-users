@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ActivityIndicator, SafeAreaView } from 'react-native';
+import { ActivityIndicator, TouchableWithoutFeedback } from 'react-native';
 import PropTypes from 'prop-types';
 import Lottie from 'lottie-react-native';
 
@@ -30,6 +30,9 @@ export default class User extends Component {
         user: PropTypes.shape(),
       }).isRequired,
     }),
+    navigation: PropTypes.shape({
+      navigate: PropTypes.func,
+    }).isRequired,
   };
 
   state = {
@@ -81,6 +84,12 @@ export default class User extends Component {
     });
   };
 
+  handleNavigate = (repository) => {
+    const { navigation } = this.props;
+
+    navigation.navigate('Repository', { repository });
+  };
+
   render() {
     const { stars, user, loading, refreshing, loadingData } = this.state;
 
@@ -114,13 +123,17 @@ export default class User extends Component {
                 refreshing={refreshing}
                 onEndReached={this.loadMore}
                 renderItem={({ item }) => (
-                  <Starred>
-                    <OwnerAvatar source={{ uri: item.owner.avatar_url }} />
-                    <Info>
-                      <Title>{item.name}</Title>
-                      <Author>{item.owner.login}</Author>
-                    </Info>
-                  </Starred>
+                  <TouchableWithoutFeedback
+                    onPress={() => this.handleNavigate(item)}
+                  >
+                    <Starred>
+                      <OwnerAvatar source={{ uri: item.owner.avatar_url }} />
+                      <Info>
+                        <Title>{item.name}</Title>
+                        <Author>{item.owner.login}</Author>
+                      </Info>
+                    </Starred>
+                  </TouchableWithoutFeedback>
                 )}
               />
             )}
