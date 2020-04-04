@@ -82,3 +82,15 @@ export const Loader = styled.View`
   justify-content: center;
   align-items: center;
 `;
+
+export const NoData = styled.SafeAreaView`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const NoDataText = styled.Text`
+  margin-top: 130px;
+  color: #ccc;
+  font-size: 12px;
+`;
