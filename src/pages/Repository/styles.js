@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.View`
+export const Loader = styled.View`
   flex: 1;
   background: #fff;
   align-items: center;

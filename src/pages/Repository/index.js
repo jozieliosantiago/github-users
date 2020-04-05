@@ -3,7 +3,7 @@ import { WebView } from 'react-native-webview';
 import { ActivityIndicator } from 'react-native';
 import PropTypes from 'prop-types';
 
-import { Container } from './styles';
+import { Loader } from './styles';
 
 export default class Repository extends Component {
   static propTypes = {
@@ -37,9 +37,9 @@ export default class Repository extends Component {
           onLoad={() => this.setState({ loading: false })}
         />
         {loading && (
-          <Container>
+          <Loader>
             <ActivityIndicator size="large" color="#7159c1" />
-          </Container>
+          </Loader>
         )}
       </>
     );
