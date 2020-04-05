@@ -22,8 +22,21 @@ const Routes = () => {
         }}
       >
         <Stack.Screen name="Main" component={Main} options={Main.options} />
-        <Stack.Screen name="User" component={User} options={User.options} />
-        <Stack.Screen name="Repository" component={Repository} />
+        <Stack.Screen
+          name="User"
+          component={User}
+          options={({ route }) => ({ title: route.params.user.name })}
+        />
+        <Stack.Screen
+          name="Repository"
+          component={Repository}
+          options={({ route }) => ({
+            title: route.params.repository.full_name,
+            headerTitleContainerStyle: {
+              marginHorizontal: 50,
+            },
+          })}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
