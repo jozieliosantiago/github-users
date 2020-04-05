@@ -38,7 +38,7 @@ export default class User extends Component {
   state = {
     stars: [],
     user: {},
-    page: 1,
+    page: 0,
     loadingData: true,
     loading: false,
     refreshing: false,
@@ -48,40 +48,44 @@ export default class User extends Component {
     const { route } = this.props;
     const { user } = route.params;
 
-    const response = await api.get(`/users/${user.login}/starred`);
+    await this.setState({ user });
 
-    this.setState({
-      stars: response.data,
-      loadingData: false,
-      user,
-    });
+    this.fetchData();
   }
 
+  fetchData = async () => {
+    const { user, page, stars } = this.state;
+    const nextPage = page + 1;
+
+    const response = await api.get(`/users/${user.login}/starred`, {
+      params: {
+        page: nextPage,
+      },
+    });
+
+    this.setState({
+      stars: nextPage === 1 ? response.data : [...stars, ...response.data],
+      loadingData: false,
+      user,
+      page: nextPage,
+      loading: false,
+    });
+  };
+
   loadMore = async () => {
-    const { page, user, stars } = this.state;
+    const { stars } = this.state;
     if (stars.length >= 30) {
       this.setState({ loading: true });
-      const nextPage = page + 1;
-      const response = await api.get(
-        `/users/${user.login}/starred?page=${nextPage}`
-      );
-      this.setState({
-        stars: [...stars, ...response.data],
-        page: nextPage,
-        loading: false,
-      });
+      this.fetchData();
     }
   };
 
   refreshList = async () => {
-    const { user } = this.state;
-
-    const response = await api.get(`/users/${user.login}/starred?page=1`);
-
-    this.setState({
-      stars: response.data,
-      page: 1,
+    await this.setState({
+      page: 0,
     });
+
+    this.fetchData();
   };
 
   handleNavigate = (repository) => {
