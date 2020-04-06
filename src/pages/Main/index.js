@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import { Keyboard, ActivityIndicator } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import AsyncStorage from '@react-native-community/async-storage';
+import { State } from 'react-native-gesture-handler';
+
+import UserCard from '../../components/UserCard';
 
 import api from '../../services/api';
 
@@ -12,12 +15,10 @@ import {
   Input,
   SubmitButton,
   List,
-  User,
-  Avatar,
-  Name,
-  Bio,
-  ProfileButton,
-  ProfileButtonText,
+  GroupButton,
+  DeleteButton,
+  TextButton,
+  CancelButton,
 } from './styles';
 
 export default class Main extends Component {
@@ -32,6 +33,9 @@ export default class Main extends Component {
     users: [],
     loading: false,
     requestError: false,
+    remove: false,
+    removeList: [],
+    disabled: false,
   };
 
   async componentDidMount() {
@@ -101,44 +105,95 @@ export default class Main extends Component {
     navigation.navigate('User', { user });
   };
 
+  longPress = (nativeEvent) => {
+    if (nativeEvent.state === State.ACTIVE)
+      this.setState({ remove: true, disabled: true });
+  };
+
+  addRemoveInDeleteList = async (userLogin, add) => {
+    const { removeList } = this.state;
+
+    if (add) await this.setState({ removeList: [...removeList, userLogin] });
+    else
+      await this.setState({
+        removeList: removeList.filter((user) => user !== userLogin),
+      });
+
+    return add;
+  };
+
+  deleteUsers = () => {
+    this.setState({ remove: false, disabled: false });
+    const { users, removeList } = this.state;
+
+    const newList = users.filter((user) => !removeList.includes(user.login));
+
+    this.setState({
+      users: newList,
+      removeList: [],
+    });
+  };
+
   render() {
-    const { users, newUser, loading, requestError } = this.state;
+    const {
+      users,
+      newUser,
+      loading,
+      requestError,
+      remove,
+      disabled,
+      removeList,
+    } = this.state;
 
     return (
       <Container>
-        <Form>
-          <Input
-            autoCorrect={false}
-            autoCaptalize="none"
-            placeholder="Adcionar usuário"
-            value={newUser}
-            onChangeText={(text) => this.setState({ newUser: text.trim() })}
-            returnKeyType="send"
-            onSubmitEditing={this.handleAddUser}
-            requestError={requestError}
-          />
-          <SubmitButton loading={loading} onPress={this.handleAddUser}>
-            {loading ? (
-              <ActivityIndicator color="#fff" />
-            ) : (
-              <Icon name="add" size={20} color="#fff" />
-            )}
-          </SubmitButton>
-        </Form>
+        {remove ? (
+          <GroupButton>
+            <CancelButton
+              onPress={() => this.setState({ remove: false, disabled: false })}
+            >
+              <TextButton>Cancelar</TextButton>
+            </CancelButton>
+            <DeleteButton
+              onPress={() => (!removeList.length ? false : this.deleteUsers())}
+            >
+              <TextButton disabled={!removeList.length}>Remover</TextButton>
+            </DeleteButton>
+          </GroupButton>
+        ) : (
+          <Form>
+            <Input
+              autoCorrect={false}
+              autoCaptalize="none"
+              placeholder="Adcionar usuário"
+              value={newUser}
+              onChangeText={(text) => this.setState({ newUser: text.trim() })}
+              returnKeyType="send"
+              onSubmitEditing={this.handleAddUser}
+              requestError={requestError}
+            />
+            <SubmitButton loading={loading} onPress={this.handleAddUser}>
+              {loading ? (
+                <ActivityIndicator color="#fff" />
+              ) : (
+                <Icon name="add" size={20} color="#fff" />
+              )}
+            </SubmitButton>
+          </Form>
+        )}
 
         <List
           data={users}
           keyExtractor={(user) => user.login}
           renderItem={({ item }) => (
-            <User>
-              <Avatar source={{ uri: item.avatar }} />
-              <Name>{item.name}</Name>
-              <Bio>{item.bio}</Bio>
-
-              <ProfileButton onPress={() => this.handleNavigate(item)}>
-                <ProfileButtonText>Ver perfil</ProfileButtonText>
-              </ProfileButton>
-            </User>
+            <UserCard
+              longPress={this.longPress}
+              remove={remove}
+              user={item}
+              addRemoveInDeleteList={this.addRemoveInDeleteList}
+              handleNavigate={this.handleNavigate}
+              disabled={disabled}
+            />
           )}
         />
       </Container>

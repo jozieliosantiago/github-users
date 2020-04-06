@@ -1,14 +1,16 @@
 import styled from 'styled-components/native';
 import { RectButton } from 'react-native-gesture-handler';
+import { CheckBox } from 'react-native';
 
 export const Container = styled.View`
   flex: 1;
-  padding: 30px;
+  padding: 25px 20px;
   background: #fff;
 `;
 
 export const Form = styled.View`
   flex-direction: row;
+  height: 60px;
   padding-bottom: 20px;
   border-bottom-width: 1px;
   border-color: #ddd;
@@ -43,7 +45,9 @@ export const List = styled.FlatList.attrs({
 
 export const User = styled.View`
   align-items: center;
-  margin: 0 20px 30px;
+  margin: 0 0px 30px;
+  border-radius: 4px;
+  padding: 10px 15px;
 `;
 
 export const Avatar = styled.Image`
@@ -86,4 +90,36 @@ export const ProfileButtonText = styled.Text`
   font-weight: bold;
   color: #fff;
   text-transform: uppercase;
+`;
+
+export const Check = styled(CheckBox)`
+  position: absolute;
+  z-index: 1;
+  right: 0;
+`;
+
+export const GroupButton = styled.View`
+  flex-direction: row;
+  height: 60px;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 10px;
+  padding-bottom: 20px;
+  border-bottom-width: 1px;
+  border-color: #ddd;
+`;
+
+export const DeleteButton = styled(RectButton)`
+  align-items: center;
+`;
+
+export const CancelButton = styled(RectButton)`
+  align-items: center;
+`;
+
+export const TextButton = styled.Text`
+  padding: 8px 30px;
+  border: solid 1px ${(props) => (props.disabled ? '#7159c160' : '#7159c1')};
+  border-radius: 4px;
+  color: ${(props) => (props.disabled ? '#7159c160' : '#7159c1')};
 `;
