@@ -4,7 +4,7 @@ import { CheckBox } from 'react-native';
 
 export const Container = styled.View`
   flex: 1;
-  padding: 25px 20px;
+  padding: 25px 20px 0px;
   background: #fff;
 `;
 
