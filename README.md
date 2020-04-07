@@ -1,4 +1,4 @@
-# Lista de Repositórios
+# Usuários do GitHub
 
 A aplicação lista usuários do GitHub cadatrados na aplicação. Para cadastrar um usuário basta infomar o login do usuários no input na página inicial e clicar em '+'.
 
