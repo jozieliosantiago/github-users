@@ -5,13 +5,13 @@ A aplicação lista usuários do GitHub cadatrados na aplicação. Para cadastra
 Clicando em <strong>VER PERFIL</strong> é possível ver a listagem dos repositórios favoritos do usuário.
 
 # Imagens do App
-<p style="display: flex !important; justify-content: space-evenly !important">
+<p align="center">
   <img src=".github/user-list.jpg" width="210px"} />
   <img src=".github/add-user.jpg" width="210px"} />
   <img src=".github/mark-user-to-remove.jpg" width="210px"} />
   <img src=".github/remove-user.jpg" width="210px"} />
 </p>
-<p style="display: flex !important; justify-content: space-evenly !important">
+<p align="center">
   <img src=".github/loading-starred-list.jpg" width="210px"} />
   <img src=".github/view-starred-list.jpg" width="210px"} />
   <img src=".github/open-repository.jpg" width="210px"} />
