@@ -5,17 +5,17 @@ A aplicação lista usuários do GitHub cadatrados na aplicação. Para cadastra
 Clicando em <strong>VER PERFIL</strong> é possível ver a listagem dos repositórios favoritos do usuário.
 
 # Imagens do App
-<p>
-  <img src=".github/user-list.jpg" width="210px" style="margin: 0px 4px"} />
-  <img src=".github/add-user.jpg" width="210px" style="margin: 0px 4px"} />
-  <img src=".github/mark-user-to-remove.jpg" width="210px" style="margin: 0px 4px"} />
-  <img src=".github/remove-user.jpg" width="210px" style="margin: 0px 4px"} />
+<p style="display: flex; justify-content: space-evenly">
+  <img src=".github/user-list.jpg" width="210px"} />
+  <img src=".github/add-user.jpg" width="210px"} />
+  <img src=".github/mark-user-to-remove.jpg" width="210px"} />
+  <img src=".github/remove-user.jpg" width="210px"} />
 </p>
-<p>
-  <img src=".github/loading-starred-list.jpg" width="210px" style="margin: 0px 4px"} />
-  <img src=".github/view-starred-list.jpg" width="210px" style="margin: 0px 4px"} />
-  <img src=".github/open-repository.jpg" width="210px" style="margin: 0px 4px"} />
-  <img src=".github/without-starred-list.jpg" width="210px" style="margin: 0px 4px"} />
+<p style="display: flex; justify-content: space-evenly">
+  <img src=".github/loading-starred-list.jpg" width="210px"} />
+  <img src=".github/view-starred-list.jpg" width="210px"} />
+  <img src=".github/open-repository.jpg" width="210px"} />
+  <img src=".github/without-starred-list.jpg" width="210px"} />
 </p>
 
 ## Instalação
