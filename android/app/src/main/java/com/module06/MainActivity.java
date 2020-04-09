@@ -1,4 +1,4 @@
-package com.module06;
+package com.github_users;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "module06";
+    return "github_users";
   }
 }

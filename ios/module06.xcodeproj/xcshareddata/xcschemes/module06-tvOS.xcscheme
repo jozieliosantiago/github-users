@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "module06-tvOS.app"
-               BlueprintName = "module06-tvOS"
-               ReferencedContainer = "container:module06.xcodeproj">
+               BuildableName = "github_users-tvOS.app"
+               BlueprintName = "github_users-tvOS"
+               ReferencedContainer = "container:github_users.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "module06-tvOSTests.xctest"
-               BlueprintName = "module06-tvOSTests"
-               ReferencedContainer = "container:module06.xcodeproj">
+               BuildableName = "github_users-tvOSTests.xctest"
+               BlueprintName = "github_users-tvOSTests"
+               ReferencedContainer = "container:github_users.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "module06-tvOS.app"
-            BlueprintName = "module06-tvOS"
-            ReferencedContainer = "container:module06.xcodeproj">
+            BuildableName = "github_users-tvOS.app"
+            BlueprintName = "github_users-tvOS"
+            ReferencedContainer = "container:github_users.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "module06-tvOS.app"
-            BlueprintName = "module06-tvOS"
-            ReferencedContainer = "container:module06.xcodeproj">
+            BuildableName = "github_users-tvOS.app"
+            BlueprintName = "github_users-tvOS"
+            ReferencedContainer = "container:github_users.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
