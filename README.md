@@ -10,7 +10,7 @@ Clicando em <strong>VER PERFIL</strong> é possível ver a listagem dos reposit�
 </p> -->
 
 # Imagens do App
-<div style="display: flex; align-items: center; justify-content: center">
+<div style="display: flex !important; align-items: center; justify-content: center">
   <div style="margin-right: 8px">
     <img src=".github/github-users-2.gif" width="350px"} />
   </div>
@@ -25,7 +25,7 @@ Clicando em <strong>VER PERFIL</strong> é possível ver a listagem dos reposit�
     </p>
   </div>
 </div>
-<div style="display: flex; align-items: center; justify-content: center">
+<div style="display: flex !important; align-items: center; justify-content: center">
   <div width="10%">
     <p align="center">
       <img src=".github/open-repository.jpg" width="168px" style="margin: 0 2px"} />
