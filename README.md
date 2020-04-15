@@ -12,32 +12,32 @@ Clicando em <strong>VER PERFIL</strong> é possível ver a listagem dos reposit�
 # Imagens do App
 <div style="display: flex; align-items: center; justify-content: center">
   <div style="margin-right: 8px">
-    <img src=".github/github-users-1.gif" width="412px"} />
+    <img src=".github/github-users-2.gif" width="350px"} />
   </div>
   <div width="10%">
     <p align="center">
-      <img src=".github/user-list.jpg" width="200px" style="margin: 0 2px"} />
-      <img src=".github/add-user.jpg" width="200px" style="margin: 0 2px"} />
+      <img src=".github/user-list.jpg" width="168px" style="margin: 0 2px"} />
+      <img src=".github/add-user.jpg" width="168px" style="margin: 0 2px"} />
     </p>
     <p align="center">
-      <img src=".github/mark-user-to-remove.jpg" width="200px" style="margin: 0 2px"} />
-      <img src=".github/remove-user.jpg" width="200px" style="margin: 0 2px"} />
+      <img src=".github/mark-user-to-remove.jpg" width="168px" style="margin: 0 2px"} />
+      <img src=".github/remove-user.jpg" width="168px" style="margin: 0 2px"} />
     </p>
   </div>
 </div>
 <div style="display: flex; align-items: center; justify-content: center">
   <div width="10%">
     <p align="center">
-      <img src=".github/open-repository.jpg" width="200px" style="margin: 0 2px"} />
-      <img src=".github/without-starred-list.jpg" width="200px" style="margin: 0 2px"} />
+      <img src=".github/open-repository.jpg" width="168px" style="margin: 0 2px"} />
+      <img src=".github/without-starred-list.jpg" width="168px" style="margin: 0 2px"} />
     </p>
     <p align="center">
-      <img src=".github/loading-starred-list.jpg" width="200px" style="margin: 0 2px"} />
-      <img src=".github/view-starred-list.jpg" width="200px" style="margin: 0 2px"} />
+      <img src=".github/loading-starred-list.jpg" width="168px" style="margin: 0 2px"} />
+      <img src=".github/view-starred-list.jpg" width="168px" style="margin: 0 2px"} />
     </p>
   </div>
    <div style="margin-left: 8px">
-    <img src=".github/github-users-1.gif" width="412px"} />
+    <img src=".github/github-users-1.gif" width="350px"} />
   </div>
 </div>
 
