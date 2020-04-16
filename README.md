@@ -1,6 +1,6 @@
 # Usuários do GitHub
 
-A aplicação lista usuários do GitHub cadatrados na aplicação. Para cadastrar um usuário basta infomar o login do usuários no input na página inicial e clicar em '+'.
+A aplicação lista usuários do GitHub cadastrados na aplicação. Para cadastrar um usuário basta informar o login do usuário no input na página inicial e clicar em '+'.
 
 Clicando em <strong>VER PERFIL</strong> é possível ver a listagem dos repositórios favoritos do usuário.
 
@@ -20,7 +20,7 @@ Clicando em <strong>VER PERFIL</strong> é possível ver a listagem dos reposit�
 
 ## Instalação
 
-Como a aplicação foi contruída para fins didáticos o passo a passo abaixo provê a instalação em modo de desenvolvimento.
+Como a aplicação foi construída para fins didáticos o passo a passo abaixo provê a instalação em modo de desenvolvimento.
 
 Conecte o dispositivo Android via USB em modo de Debug. Após clonar o repositório, dentro da pasta criada, execute o comando
 
